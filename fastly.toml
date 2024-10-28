@@ -1,0 +1,26 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["dmichael@fastly.com"]
+cloned_from = "https://github.com/fastly/compute-starter-kit-rust-default"
+description = "A Compute project that encrypts and decrypts bytes for storage and delivery."
+language = "rust"
+manifest_version = 3
+name = "encrypt-decrypt"
+service_id = "9pnpICQ2Xlxizy2NeOFvQ7"
+
+[local_server]
+  [local_server.backends]
+    [local_server.backends.video_origin]
+      override_host = "35.222.17.124"
+      url = "http://35.222.17.124/"
+  [local_server.secret_stores]
+    [[local_server.secret_stores.encrypt-decrypt]]
+      key = "key"
+      data = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    [[local_server.secret_stores.encrypt-decrypt]]
+      key = "iv"
+      data = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+[scripts]
+  build = "cargo build --bin encrypt-decrypt --release --target wasm32-wasi --color always"

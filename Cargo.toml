@@ -1,0 +1,17 @@
+[package]
+name = "encrypt-decrypt"
+version = "0.1.0"
+authors = []
+edition = "2021"
+# Remove this line if you want to be able to publish this crate as open source on crates.io.
+# Otherwise, `publish = false` prevents an accidental `cargo publish` from revealing private source.
+publish = false
+
+[profile.release]
+debug = 1
+
+[dependencies]
+aes-wasm = "0.1.11"
+bytes = "1.8.0"
+fastly = "^0.10.2"
+hex = "^0.4.3"
