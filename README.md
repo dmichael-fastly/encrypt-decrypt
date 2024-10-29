@@ -1,23 +1,8 @@
-# Default Starter Kit for Rust
+# Encrypt and Decrypt Objects with Fastly Compute
 
-[![Deploy to Fastly](https://deploy.edgecompute.app/button)](https://deploy.edgecompute.app/deploy)
-
-Get to know the Fastly Compute environment with a basic starter that demonstrates routing, simple synthetic responses and code comments that cover common patterns.
-
-**For more details about this and other starter kits for Compute, see the [Fastly Documentation Hub](https://www.fastly.com/documentation/solutions/starters/)**.
+This project will encrypt objects before inserting them into the Fastly cache via the core cache API. This allows for storage of encrypted objects on Fastly disk (and memory) while decrypting them when delivering the objects to clients.
 
 ## Features
 
-- Allow only requests with particular HTTP methods
-- Match request URL path and methods for routing
-- Build synthetic responses at the edge
-
-## Understanding the code
-
-This starter is intentionally lightweight, and requires no dependencies aside from the [`fastly`](https://docs.rs/fastly) crate. It will help you understand the basics of processing requests at the edge using Fastly. This starter includes implementations of common patterns explained in our [using Compute](https://www.fastly.com/documentation/guides/compute/rust/) and [VCL migration](https://www.fastly.com/documentation/guides/compute/migrate/) guides.
-
-The starter doesn't require the use of any backends. Once deployed, you will have a Fastly service running on Compute that can generate synthetic responses at the edge.
-
-## Security issues
-
-Please see [SECURITY.md](SECURITY.md) for guidance on reporting security-related issues.
+- Handles pre-encrypted objects or objects that need to be encrypted on the fly
+- Matches on request URL path as objects in the /videos/encrypted/ folder are already encrypted on the server-side.
