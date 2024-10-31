@@ -1,6 +1,6 @@
 # Encrypt and Decrypt Objects with Fastly Compute
 
-This project will encrypt objects before inserting them into the Fastly cache via the core cache API. This allows for storage of encrypted objects on Fastly disk (and memory) while decrypting them when delivering the objects to clients.
+This project will encrypt objects before inserting them into the Fastly cache via the core cache API. It will also decrypt objects that are pulled from the Fastly cache. This allows for storage of encrypted objects on Fastly disk (and memory) while decrypting them when delivering the objects to clients.
 
 ## Features
 
